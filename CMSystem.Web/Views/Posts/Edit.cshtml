@@ -1,0 +1,55 @@
+﻿@model CMSystem.Web.Models.Post
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = null;
+}
+<hr />
+
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Title" class="control-label"></label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Body" class="control-label"></label>
+                <input asp-for="Body" class="form-control" />
+                <span asp-validation-for="Body" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ImageUrl" class="control-label"></label>
+                <input asp-for="ImageUrl" class="form-control" />
+                <span asp-validation-for="ImageUrl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AttatcmentUrl" class="control-label"></label>
+                <input asp-for="AttatcmentUrl" class="form-control" />
+                <span asp-validation-for="AttatcmentUrl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PubilishAt" class="control-label"></label>
+                <input asp-for="PubilishAt" class="form-control" />
+                <span asp-validation-for="PubilishAt" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PostCategoryId" class="control-label"></label>
+                <select asp-for="PostCategoryId" class="form-control" asp-items="ViewBag.PostCategoryId"></select>
+                <span asp-validation-for="PostCategoryId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OrgnisationId" class="control-label"></label>
+                <select asp-for="OrgnisationId" class="form-control" asp-items="ViewBag.OrgnisationId"></select>
+                <span asp-validation-for="OrgnisationId" class="text-danger"></span>
+            </div>
+            <input type="hidden" asp-for="Id" />
+         
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

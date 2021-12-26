@@ -1,0 +1,93 @@
+﻿@model CMSystem.Web.Models.Post
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="card card-custom gutter-b">
+    <div class="card-header">
+        <div class="card-title">
+            <h3 class="card-label">
+                ADD Post
+                <small>Manege Add nwe Post</small>
+            </h3>
+        </div>
+
+    </div>
+    <div class="card-body">
+
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="Title" class="control-label"></label>
+                        <input asp-for="Title" class="form-control" />
+                        <span asp-validation-for="Title" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="PubilishAt" class="control-label"></label>
+                        <input asp-for="PubilishAt" class="form-control" />
+                        <span asp-validation-for="PubilishAt" class="text-danger"></span>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+                <label asp-for="Body" class="control-label"></label>
+                <textarea id="summernote" asp-for="Body" class="form-control"></textarea>
+                <span asp-validation-for="Body" class="text-danger"></span>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="ImageUrl" class="control-label"></label>
+                        <input name="imgFile" type="file" asp-for="ImageUrl" class="form-control" />
+                        <span asp-validation-for="ImageUrl" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="AttatcmentUrl" class="control-label"></label>
+                        <input type="file" name="attatcmentFile" asp-for="AttatcmentUrl" class="form-control" />
+                        <span asp-validation-for="AttatcmentUrl" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="PostCategoryId" class="control-label"></label>
+                <select asp-for="PostCategoryId" class="form-control" asp-items="ViewBag.PostCategoryId"></select>
+            </div>
+            @*<div class="form-group">
+                    <label asp-for="OrgnisationId" class="control-label"></label>
+                    <select asp-for="OrgnisationId" class ="form-control" asp-items="ViewBag.OrgnisationId"></select>
+                </div>*@
+            <div class="row">
+                <div class="col-md-1">
+                    <div class="form-group">
+                        <input type="submit" value="Create" class="btn btn-primary" />
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div>
+                        <a asp-action="Index" class="btn btn-dark">Back to List</a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
