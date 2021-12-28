@@ -20,6 +20,5 @@ namespace CMSystem.Web.Data
         public DbSet<EvantCategory> EvantCategorys { get; set; }
         public DbSet<EvantImage> EvantImages { get; set; }
         public DbSet<Orgnisation> Orgnisations { get; set; }
-        public DbSet<CMSystem.Web.ViweModel.UserViweModel> UserViweModel { get; set; }
     }
 }

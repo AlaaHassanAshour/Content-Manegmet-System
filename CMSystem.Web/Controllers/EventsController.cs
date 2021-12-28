@@ -21,6 +21,19 @@ namespace CMSystem.Web.Controllers
         {
             _IFileService = IFileService;
         }
+        //public IActionResult getall()
+        //{
+        //    var re = _DB.Users.ToList();
+        //    foreach (var item in re)
+        //    {
+        //        item.IsDelete = false;
+        //        _DB.Users.Update(item);
+        //        _DB.SaveChanges();
+        //    }
+
+
+        //    return Ok("done");
+        //}
 
         // GET: Events
         public async Task<IActionResult> Index()
